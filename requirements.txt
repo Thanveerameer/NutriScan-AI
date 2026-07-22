@@ -1,8 +1,8 @@
-flask
-pandas
-numpy
-scikit-learn
-matplotlib
-seaborn
-opencv-python
-pillow
+Flask
+PyMuPDF
+pdf2image
+pytesseract
+Pillow
+reportlab
+google-generativeai
+python-dotenv
