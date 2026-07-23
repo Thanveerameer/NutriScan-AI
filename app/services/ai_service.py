@@ -1,18 +1,15 @@
 import os
-import google.generativeai as genai
+from groq import Groq
 from dotenv import load_dotenv
 
-# Load .env file
+# Load .env
 load_dotenv()
 
-# Read API Key
-API_KEY = os.getenv("GEMINI_API_KEY")
+# Read Groq API Key
+API_KEY = os.getenv("GROQ_API_KEY")
 
-# Configure Gemini
-genai.configure(api_key=API_KEY)
-
-# Load Gemini Model
-model = genai.GenerativeModel("gemini-2.5-flash")
+# Create Groq Client
+client = Groq(api_key=API_KEY)
 
 
 def analyze_blood_report(report_text):
@@ -22,7 +19,7 @@ You are an AI Nutrition Assistant.
 
 Analyze the following blood test report.
 
-Give the output in this exact format.
+Return the output ONLY in the following format.
 
 Patient Summary:
 ...
@@ -39,12 +36,17 @@ Lifestyle Guidance:
 Doctor Discussion Points:
 ...
 
-Important Rules:
+Medical Disclaimer:
+This report is for educational purposes only.
+It is not a medical diagnosis.
+Please consult a qualified doctor.
+
+Rules:
 - Use simple English.
 - Do not diagnose diseases.
 - Do not prescribe medicines.
-- Give only general nutrition and lifestyle advice.
-- Mention that users should consult a doctor.
+- Give only general nutrition suggestions.
+- Give only general lifestyle guidance.
 
 Blood Report:
 
@@ -52,8 +54,23 @@ Blood Report:
 """
 
     try:
-        response = model.generate_content(prompt)
-        return response.text
+        response = client.chat.completions.create(
+            model="llama-3.3-70b-versatile",
+            messages=[
+                {
+                    "role": "system",
+                    "content": "You are a helpful healthcare AI assistant."
+                },
+                {
+                    "role": "user",
+                    "content": prompt
+                }
+            ],
+            temperature=0.3,
+            max_tokens=1200
+        )
+
+        return response.choices[0].message.content
 
     except Exception as e:
-        return f"Gemini Error: {str(e)}"
+        return f"Groq Error: {str(e)}"

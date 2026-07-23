@@ -1,0 +1,397 @@
+/* ==============================
+   NutriScan AI Premium Dashboard
+   Dashboard Main Styles
+================================ */
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body {
+
+    font-family: 'Poppins', sans-serif;
+
+    background:
+    linear-gradient(135deg,#eef7ff,#f9fbff);
+
+    min-height:100vh;
+
+}
+
+
+
+/* Dashboard Header */
+
+.dashboard-header {
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(0,198,255,0.95),
+        rgba(110,90,255,0.95)
+    );
+
+    padding:45px;
+
+    border-radius:28px;
+
+    color:white;
+
+    box-shadow:
+    0 20px 45px rgba(0,0,0,0.15);
+
+    animation:
+    fadeDown 0.8s ease;
+
+}
+
+
+
+.dashboard-header h1 {
+
+    font-size:40px;
+
+    font-weight:700;
+
+}
+
+
+
+.dashboard-header p {
+
+    margin-top:10px;
+
+    font-size:16px;
+
+    opacity:0.9;
+
+}
+
+
+
+
+/* AI Cards */
+
+
+.ai-card {
+
+    background:
+    rgba(255,255,255,0.75);
+
+
+    backdrop-filter:
+    blur(18px);
+
+
+    border-radius:25px;
+
+
+    padding:30px;
+
+
+    min-height:300px;
+
+
+    border:
+    1px solid rgba(255,255,255,0.6);
+
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,0.08);
+
+
+    transition:
+    all 0.4s ease;
+
+
+    animation:
+    fadeUp 0.8s ease;
+
+}
+
+
+
+.ai-card:hover {
+
+
+    transform:
+    translateY(-10px);
+
+
+    box-shadow:
+    0 25px 55px rgba(0,0,0,0.15);
+
+
+}
+
+
+
+
+/* Icon */
+
+
+.icon-box {
+
+
+    width:65px;
+
+    height:65px;
+
+
+    border-radius:22px;
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+    font-size:30px;
+
+
+    color:white;
+
+
+    background:
+    linear-gradient(
+        135deg,
+        #00c6ff,
+        #6e5aff
+    );
+
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+
+/* Card Title */
+
+
+.card-title {
+
+
+    font-size:23px;
+
+
+    font-weight:600;
+
+
+    color:#17324d;
+
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+
+/* AI Content */
+
+
+.card-content {
+
+
+    color:#555;
+
+
+    font-size:15px;
+
+
+    line-height:1.8;
+
+
+    white-space:pre-line;
+
+
+}
+
+
+
+/* Disclaimer */
+
+
+.disclaimer {
+
+
+    background:
+    linear-gradient(
+        135deg,
+        #fff3cd,
+        #ffe8a1
+    );
+
+
+    border-radius:25px;
+
+
+    padding:30px;
+
+
+    border-left:
+    7px solid #ffb703;
+
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,0.08);
+
+
+}
+
+
+
+.disclaimer h4 {
+
+
+    font-weight:600;
+
+
+    color:#8a5a00;
+
+
+}
+
+
+
+.disclaimer p {
+
+
+    color:#664d03;
+
+
+    line-height:1.7;
+
+
+}
+
+
+
+
+/* Footer */
+
+
+.footer-text {
+
+
+    text-align:center;
+
+
+    color:#777;
+
+
+    margin-top:40px;
+
+
+    padding-bottom:20px;
+
+
+    font-size:14px;
+
+
+}
+
+
+
+
+
+/* Animations */
+
+
+@keyframes fadeDown {
+
+
+    from {
+
+        opacity:0;
+
+        transform:
+        translateY(-30px);
+
+    }
+
+
+    to {
+
+        opacity:1;
+
+        transform:
+        translateY(0);
+
+    }
+
+
+}
+
+
+
+@keyframes fadeUp {
+
+
+    from {
+
+        opacity:0;
+
+        transform:
+        translateY(40px);
+
+    }
+
+
+    to {
+
+        opacity:1;
+
+        transform:
+        translateY(0);
+
+    }
+
+
+}
+
+
+
+
+/* Responsive */
+
+
+@media(max-width:768px){
+
+
+    .dashboard-header {
+
+        padding:30px;
+
+    }
+
+
+    .dashboard-header h1 {
+
+        font-size:28px;
+
+    }
+
+
+
+    .ai-card {
+
+        padding:22px;
+
+    }
+
+
+}

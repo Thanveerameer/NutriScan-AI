@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NutriScan AI Dashboard</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg,#eef7ff,#f8fbff);
+            min-height:100vh;
+        }
+
+
+        .dashboard-header {
+
+            background:
+            linear-gradient(135deg,
+            rgba(0,198,255,0.9),
+            rgba(110,90,255,0.9));
+
+            padding:40px;
+            border-radius:25px;
+            color:white;
+
+            box-shadow:
+            0 20px 40px rgba(0,0,0,0.15);
+
+            animation:fadeIn 0.8s ease;
+
+        }
+
+
+        .dashboard-header h1 {
+
+            font-weight:700;
+            font-size:38px;
+
+        }
+
+
+        .dashboard-header p {
+
+            opacity:0.9;
+            font-size:16px;
+
+        }
+
+
+
+        .ai-card {
+
+            background:
+            rgba(255,255,255,0.75);
+
+            backdrop-filter:blur(15px);
+
+            border-radius:25px;
+
+            padding:30px;
+
+            height:100%;
+
+            box-shadow:
+            0 15px 35px rgba(0,0,0,0.08);
+
+            border:
+            1px solid rgba(255,255,255,0.5);
+
+            transition:0.4s;
+
+            animation:slideUp 0.8s ease;
+
+        }
+
+
+
+        .ai-card:hover {
+
+            transform:translateY(-8px);
+
+            box-shadow:
+            0 25px 50px rgba(0,0,0,0.15);
+
+        }
+
+
+
+        .icon-box {
+
+            width:60px;
+            height:60px;
+
+            border-radius:20px;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            font-size:28px;
+
+            background:
+            linear-gradient(135deg,#00c6ff,#6e5aff);
+
+            color:white;
+
+            margin-bottom:20px;
+
+        }
+
+
+
+        .card-title {
+
+            font-size:22px;
+
+            font-weight:600;
+
+            color:#1d3557;
+
+            margin-bottom:15px;
+
+        }
+
+
+
+        .card-content {
+
+            color:#555;
+
+            line-height:1.8;
+
+            white-space:pre-line;
+
+            font-size:15px;
+
+        }
+
+
+
+        .disclaimer {
+
+            background:
+            linear-gradient(135deg,#fff3cd,#ffeeba);
+
+            border-radius:25px;
+
+            padding:30px;
+
+            border-left:6px solid #ffb703;
+
+        }
+
+
+
+        .footer-text {
+
+            text-align:center;
+
+            color:#777;
+
+            margin-top:40px;
+
+            padding-bottom:20px;
+
+        }
+
+
+
+        @keyframes fadeIn {
+
+            from {
+                opacity:0;
+                transform:translateY(-20px);
+            }
+
+            to {
+                opacity:1;
+                transform:translateY(0);
+            }
+
+        }
+
+
+
+        @keyframes slideUp {
+
+            from {
+
+                opacity:0;
+                transform:translateY(30px);
+
+            }
+
+            to {
+
+                opacity:1;
+                transform:translateY(0);
+
+            }
+
+        }
+
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="container py-5">
+
+
+    <!-- Header -->
+
+    <div class="dashboard-header mb-5">
+
+        <h1>
+            <i class="bi bi-heart-pulse-fill"></i>
+            NutriScan AI Dashboard
+        </h1>
+
+        <p>
+            AI-powered blood report analysis and personalized nutrition insights.
+        </p>
+
+    </div>
+
+
+
+
+    <div class="row g-4">
+
+
+
+        <!-- Patient Summary -->
+
+        <div class="col-lg-6">
+
+            <div class="ai-card">
+
+                <div class="icon-box">
+                    🩺
+                </div>
+
+
+                <div class="card-title">
+                    Patient Summary
+                </div>
+
+
+                <div class="card-content">
+
+                    {{ patient_summary }}
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+
+
+        <!-- Lab Explanation -->
+
+        <div class="col-lg-6">
+
+            <div class="ai-card">
+
+                <div class="icon-box">
+                    🧪
+                </div>
+
+
+                <div class="card-title">
+                    Lab Explanation
+                </div>
+
+
+                <div class="card-content">
+
+                    {{ lab_explanation }}
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+
+
+        <!-- Nutrition -->
+
+        <div class="col-lg-6">
+
+            <div class="ai-card">
+
+
+                <div class="icon-box">
+                    🥗
+                </div>
+
+
+                <div class="card-title">
+                    Nutrition Suggestions
+                </div>
+
+
+                <div class="card-content">
+
+                    {{ nutrition }}
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+        <!-- Lifestyle -->
+
+        <div class="col-lg-6">
+
+            <div class="ai-card">
+
+
+                <div class="icon-box">
+                    🏃
+                </div>
+
+
+                <div class="card-title">
+                    Lifestyle Guidance
+                </div>
+
+
+                <div class="card-content">
+
+                    {{ lifestyle }}
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+        <!-- Doctor Discussion -->
+
+        <div class="col-lg-12">
+
+            <div class="ai-card">
+
+
+                <div class="icon-box">
+                    💬
+                </div>
+
+
+                <div class="card-title">
+                    Doctor Discussion Points
+                </div>
+
+
+                <div class="card-content">
+
+                    {{ doctor_points }}
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+
+
+        <!-- Disclaimer -->
+
+        <div class="col-lg-12">
+
+
+            <div class="disclaimer">
+
+
+                <h4>
+                    ⚠️ Medical Disclaimer
+                </h4>
+
+
+                <p>
+
+                    {{ disclaimer }}
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+    </div>
+<form action="/download-report" method="POST">
+
+
+    <input type="hidden" 
+    name="patient_summary" 
+    value="{{ patient_summary }}">
+
+
+    <input type="hidden" 
+    name="lab_explanation" 
+    value="{{ lab_explanation }}">
+
+
+    <input type="hidden" 
+    name="nutrition" 
+    value="{{ nutrition }}">
+
+
+    <input type="hidden" 
+    name="lifestyle" 
+    value="{{ lifestyle }}">
+
+
+    <input type="hidden" 
+    name="doctor_points" 
+    value="{{ doctor_points }}">
+
+
+    <input type="hidden" 
+    name="disclaimer" 
+    value="{{ disclaimer }}">
+
+
+
+    <div class="text-center mt-5">
+
+
+        <button 
+        type="submit"
+        class="btn btn-lg"
+        style="
+        background:linear-gradient(135deg,#00c6ff,#6e5aff);
+        color:white;
+        border-radius:30px;
+        padding:15px 40px;
+        font-weight:600;
+        box-shadow:0 10px 25px rgba(0,0,0,0.15);
+        ">
+
+        <i class="bi bi-file-earmark-pdf-fill"></i>
+
+        Download AI Summary PDF
+
+        </button>
+
+
+    </div>
+
+
+</form>
+
+
+
+    <div class="footer-text">
+
+        NutriScan AI © 2026 | Educational Health Assistant Only
+
+    </div>
+
+
+</div>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/static/js/dashboard.js"></script>
+
+
+</body>
+
+</html>
