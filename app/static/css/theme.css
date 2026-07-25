@@ -1,0 +1,172 @@
+/* ======================================
+   NutriScan AI Premium Theme System
+   Version 2
+====================================== */
+
+
+/* Google Fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+
+:root {
+
+
+/* Background */
+
+--bg-primary:#07111F;
+
+--bg-secondary:#0F172A;
+
+
+/* Brand Colors */
+
+--primary:#00E5FF;
+
+--secondary:#3B82F6;
+
+
+/* Status Colors */
+
+--success:#10B981;
+
+--warning:#F59E0B;
+
+--danger:#EF4444;
+
+
+/* Text */
+
+--text-primary:#F8FAFC;
+
+--text-secondary:#CBD5E1;
+
+
+/* Glass */
+
+--glass-bg:
+rgba(255,255,255,0.08);
+
+--glass-border:
+rgba(255,255,255,0.15);
+
+
+
+/* Shadows */
+
+--shadow-soft:
+0 10px 40px rgba(0,0,0,0.25);
+
+
+--shadow-glow:
+0 0 30px rgba(0,229,255,0.25);
+
+
+
+/* Radius */
+
+--radius-sm:12px;
+
+--radius-md:16px;
+
+--radius-lg:22px;
+
+
+
+/* Transition */
+
+--transition:
+all .35s ease;
+
+}
+
+
+
+/* Global */
+
+*{
+
+margin:0;
+
+padding:0;
+
+box-sizing:border-box;
+
+}
+
+
+
+body{
+
+
+font-family:'Inter',sans-serif;
+
+background:
+
+radial-gradient(
+circle at top,
+rgba(0,229,255,.12),
+transparent 40%
+),
+
+var(--bg-primary);
+
+
+color:var(--text-primary);
+
+min-height:100vh;
+
+}
+
+
+
+/* Headings */
+
+h1,
+h2,
+h3,
+h4{
+
+
+font-family:'Poppins',sans-serif;
+
+font-weight:600;
+
+
+}
+
+
+
+p{
+
+color:var(--text-secondary);
+
+line-height:1.7;
+
+}
+
+
+
+/* Links */
+
+a{
+
+text-decoration:none;
+
+color:inherit;
+
+}
+
+
+
+/* Container */
+
+.container-premium{
+
+width:90%;
+
+max-width:1200px;
+
+margin:auto;
+
+}

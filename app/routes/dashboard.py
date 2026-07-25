@@ -12,7 +12,6 @@ dashboard_bp = Blueprint(
 )
 
 
-
 def parse_ai_response(ai_result):
 
     sections = {
@@ -37,7 +36,6 @@ def parse_ai_response(ai_result):
 
         if not line:
             continue
-
 
 
         if line.startswith("Patient Summary:"):
@@ -77,8 +75,9 @@ def parse_ai_response(ai_result):
                 sections[current_section] += line + "\n"
 
 
-
     return sections
+
+
 @dashboard_bp.route("/download-report", methods=["POST"])
 def download_report():
 
@@ -86,18 +85,12 @@ def download_report():
     data = request.form
 
 
-
     pdf_path = os.path.join(
         os.getcwd(),
-
         "static",
-
         "uploads",
-
         "NutriScan_AI_Report.pdf"
-
     )
-
 
 
     generate_ai_report_pdf(
@@ -117,7 +110,6 @@ def download_report():
         data.get("disclaimer","")
 
     )
-
 
 
     return send_file(

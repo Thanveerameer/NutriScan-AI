@@ -1,151 +1,901 @@
-/* ===========================
-   NutriScan AI Upload Page
-=========================== */
+/* ==========================================
+   NutriScan AI
+   Premium Upload Page CSS
+   Module 6 Part 3
+========================================== */
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI',sans-serif;
+
+/* Main Page */
+
+.upload-page {
+
+    min-height: 100vh;
+
+    padding: 80px 20px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+    radial-gradient(
+        circle at top left,
+        rgba(0,198,255,0.25),
+        transparent 40%
+    ),
+    radial-gradient(
+        circle at bottom right,
+        rgba(0,100,255,0.25),
+        transparent 40%
+    );
+
 }
 
-body{
-    min-height:100vh;
-    background:linear-gradient(135deg,#F8FAFC,#E0F2FE);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#1F2937;
-}
 
-.upload-card{
-    max-width:720px;
-    width:100%;
-    background:rgba(255,255,255,.75);
-    backdrop-filter:blur(18px);
-    border-radius:24px;
-    padding:40px;
-    border:1px solid rgba(255,255,255,.4);
-    box-shadow:0 15px 35px rgba(0,0,0,.12);
-}
 
-.upload-icon{
-    width:90px;
-    height:90px;
-    margin:auto;
+
+
+/* Background AI Glow */
+
+
+.ai-glow {
+
+    position:absolute;
+
+    width:300px;
+
+    height:300px;
+
     border-radius:50%;
-    background:linear-gradient(135deg,#10B981,#14B8A6);
+
+    filter:blur(100px);
+
+    opacity:0.5;
+
+    z-index:0;
+
+}
+
+
+
+.glow-one {
+
+    top:-100px;
+
+    left:-100px;
+
+    background:#00c6ff;
+
+}
+
+
+
+.glow-two {
+
+    bottom:-120px;
+
+    right:-100px;
+
+    background:#0066ff;
+
+}
+
+
+
+
+
+
+/* Header */
+
+
+.upload-header {
+
+    position:relative;
+
+    z-index:2;
+
+    margin-bottom:40px;
+
+}
+
+
+
+.ai-logo {
+
+    width:80px;
+
+    height:80px;
+
+    margin:auto;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
-    color:white;
+
     font-size:40px;
-    box-shadow:0 10px 25px rgba(16,185,129,.35);
+
+    border-radius:25px;
+
+    background:
+
+    linear-gradient(
+        135deg,
+        rgba(0,198,255,0.3),
+        rgba(0,80,255,0.3)
+    );
+
+
+    backdrop-filter:blur(20px);
+
+
+    box-shadow:
+
+    0 15px 40px rgba(0,150,255,0.25);
+
+
 }
 
-h2{
+
+
+.upload-header h1 {
+
+
+    margin-top:25px;
+
+    font-size:42px;
+
     font-weight:700;
+
+    color:white;
+
+
 }
 
-.drop-zone{
-    display:block;
-    margin-top:30px;
-    border:3px dashed #10B981;
-    border-radius:20px;
-    padding:60px 25px;
+
+
+.upload-header p {
+
+
+    max-width:600px;
+
+    margin:auto;
+
+    color:rgba(255,255,255,0.75);
+
+    font-size:17px;
+
+}
+
+
+
+
+
+
+/* Upload Card */
+
+
+.upload-card {
+
+
+    position:relative;
+
+    z-index:2;
+
+
+    max-width:750px;
+
+    margin:auto;
+
+    padding:35px;
+
+
+    border-radius:30px;
+
+
+    background:
+
+    rgba(255,255,255,0.08);
+
+
+    backdrop-filter:blur(25px);
+
+
+    border:
+
+    1px solid rgba(255,255,255,0.15);
+
+
+    box-shadow:
+
+    0 25px 60px rgba(0,0,0,0.25);
+
+
+}
+
+
+
+
+
+
+/* Drop Zone */
+
+
+.drop-zone {
+
+
+    border:
+
+    2px dashed rgba(0,198,255,0.5);
+
+
+    border-radius:25px;
+
+
+    padding:50px 25px;
+
+
     text-align:center;
+
+
     cursor:pointer;
-    transition:.35s ease;
-    background:white;
+
+
+    transition:0.4s ease;
+
+
 }
 
-.drop-zone:hover{
-    transform:translateY(-4px);
-    background:#F0FDFA;
-    box-shadow:0 12px 25px rgba(16,185,129,.15);
+
+
+.drop-zone:hover {
+
+
+    transform:translateY(-5px);
+
+
+    border-color:#00c6ff;
+
+
+    background:
+
+    rgba(0,198,255,0.08);
+
+
 }
 
-.upload-cloud{
-    font-size:60px;
-    color:#10B981;
-    margin-bottom:15px;
+
+
+.drop-zone.drag-active {
+
+
+    background:
+
+    rgba(0,198,255,0.15);
+
+
+    transform:scale(1.02);
+
+
 }
 
-.drop-content h4{
-    font-weight:700;
-    margin-bottom:10px;
+
+
+
+
+
+.upload-icon {
+
+
+    font-size:55px;
+
+    margin-bottom:20px;
+
+
 }
 
-.drop-content p{
-    color:#6B7280;
-    margin-bottom:15px;
-}
 
-.file-name{
-    display:inline-block;
-    padding:10px 18px;
-    background:#ECFDF5;
-    color:#065F46;
-    border-radius:10px;
-    font-weight:600;
-    word-break:break-word;
-}
 
-.upload-btn{
-    background:#10B981;
+.drop-zone h3 {
+
+
     color:white;
+
+    font-size:24px;
+
+    font-weight:600;
+
+
+}
+
+
+
+.drop-zone p {
+
+
+    color:
+
+    rgba(255,255,255,0.7);
+
+
+}
+
+
+
+.drop-zone small {
+
+
+    display:block;
+
+    margin-top:20px;
+
+    color:
+
+    rgba(255,255,255,0.5);
+
+
+}
+
+
+
+
+
+
+/* Browse Button */
+
+
+.browse-btn {
+
+
+    margin-top:20px;
+
+
+    padding:
+
+    14px 30px;
+
+
+    border-radius:50px;
+
+
     border:none;
-    padding:14px;
-    font-size:18px;
-    border-radius:14px;
-    font-weight:600;
-    transition:.3s;
-}
 
-.upload-btn:hover{
-    background:#059669;
+
     color:white;
-    transform:translateY(-2px);
-    box-shadow:0 10px 20px rgba(16,185,129,.25);
-}
 
-.alert{
-    border-radius:14px;
-}
 
-.back-link{
-    color:#10B981;
-    text-decoration:none;
     font-weight:600;
+
+
+    background:
+
+
+    linear-gradient(
+        135deg,
+        #00c6ff,
+        #0066ff
+    );
+
+
+    box-shadow:
+
+    0 10px 30px rgba(0,120,255,0.35);
+
+
+    transition:0.3s;
+
+
 }
 
-.back-link:hover{
-    color:#059669;
+
+
+.browse-btn:hover {
+
+
+    transform:translateY(-3px);
+
+
 }
+
+
+
+
+
+
+
+/* File Preview */
+
+
+.file-preview {
+
+
+    margin-top:25px;
+
+
+    padding:20px;
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    gap:15px;
+
+
+    border-radius:20px;
+
+
+    background:
+
+    rgba(255,255,255,0.12);
+
+
+    animation:
+
+    slideUp 0.4s ease;
+
+
+}
+
+
+
+.file-icon {
+
+
+    font-size:35px;
+
+
+}
+
+
+
+.file-preview h5 {
+
+
+    color:white;
+
+    margin:0;
+
+
+}
+
+
+
+.file-preview span {
+
+
+    color:
+
+    rgba(255,255,255,0.6);
+
+
+    font-size:14px;
+
+
+}
+
+
+
+.remove-btn {
+
+
+    margin-left:auto;
+
+
+    width:35px;
+
+
+    height:35px;
+
+
+    border-radius:50%;
+
+
+    border:none;
+
+
+    background:
+
+    rgba(255,0,0,0.15);
+
+
+    color:white;
+
+
+    cursor:pointer;
+
+
+}
+
+
+
+
+
+
+/* AI Button */
+
+
+.ai-upload-btn {
+
+
+    width:100%;
+
+
+    margin-top:30px;
+
+
+    padding:18px;
+
+
+    border:none;
+
+
+    border-radius:18px;
+
+
+    color:white;
+
+
+    font-size:18px;
+
+
+    font-weight:700;
+
+
+    background:
+
+
+    linear-gradient(
+        135deg,
+        #0066ff,
+        #00c6ff
+    );
+
+
+    box-shadow:
+
+
+    0 15px 40px rgba(0,150,255,0.4);
+
+
+    transition:0.4s;
+
+
+}
+
+
+
+.ai-upload-btn:hover {
+
+
+    transform:
+
+    translateY(-5px);
+
+
+    box-shadow:
+
+
+    0 20px 50px rgba(0,150,255,0.6);
+
+
+}
+
+
+
+.ai-upload-btn.loading {
+
+
+    opacity:0.7;
+
+
+    pointer-events:none;
+
+
+}
+
+
+
+
+
+
+
+/* Guide Button */
+
+
+.guide-section {
+
+
+    text-align:center;
+
+
+    margin-top:30px;
+
+
+    position:relative;
+
+    z-index:2;
+
+
+}
+
+
+
+.guide-btn {
+
+
+    border:none;
+
+
+    padding:
+
+    12px 30px;
+
+
+    border-radius:50px;
+
+
+    background:
+
+    rgba(255,255,255,0.1);
+
+
+    color:white;
+
+
+    backdrop-filter:blur(20px);
+
+
+}
+
+
+
+
+
+
+/* Modal */
+
+
+.glass-modal {
+
+
+    background:
+
+    rgba(10,30,60,0.95);
+
+
+    color:white;
+
+
+    border-radius:25px;
+
+
+    border:
+
+    1px solid rgba(255,255,255,0.15);
+
+
+}
+
+
+
+.step-item {
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    gap:15px;
+
+
+    padding:15px;
+
+
+    margin-bottom:12px;
+
+
+    border-radius:15px;
+
+
+    background:
+
+    rgba(255,255,255,0.08);
+
+
+}
+
+
+
+.step-item span {
+
+
+    width:35px;
+
+
+    height:35px;
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    justify-content:center;
+
+
+    border-radius:50%;
+
+
+    background:#0066ff;
+
+
+}
+
+
+
+
+
+
+/* Disclaimer */
+
+
+.medical-disclaimer {
+
+
+    max-width:750px;
+
+
+    margin:35px auto 0;
+
+
+    padding:20px;
+
+
+    border-radius:20px;
+
+
+    position:relative;
+
+
+    z-index:2;
+
+
+    background:
+
+    rgba(255,255,255,0.08);
+
+
+    color:
+
+    rgba(255,255,255,0.8);
+
+
+    text-align:center;
+
+
+    font-size:14px;
+
+
+    backdrop-filter:blur(20px);
+
+
+}
+
+
+
+
+
+
+/* Animation */
+
+
+@keyframes slideUp {
+
+
+from {
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+}
+
+
+to {
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+}
+
+
+
+
+
+
+
+/* Mobile */
+
 
 @media(max-width:768px){
 
-    .upload-card{
-        padding:25px;
-        margin:15px;
-    }
 
-    .drop-zone{
-        padding:40px 15px;
-    }
+.upload-page {
 
-    .upload-icon{
-        width:70px;
-        height:70px;
-        font-size:30px;
-    }
 
-    .upload-cloud{
-        font-size:45px;
-    }
+padding:50px 15px;
 
-    h2{
-        font-size:26px;
-    }
+
+}
+
+
+
+.upload-header h1 {
+
+
+font-size:30px;
+
+
+}
+
+
+
+.upload-card {
+
+
+padding:20px;
+
+
+border-radius:22px;
+
+
+}
+
+
+
+.drop-zone {
+
+
+padding:35px 15px;
+
+
+}
+
+
+
+.drop-zone h3 {
+
+
+font-size:20px;
+
+
+}
+
+
+
+.ai-logo {
+
+
+width:65px;
+
+height:65px;
+
+font-size:32px;
+
+
+}
+
+
 
 }

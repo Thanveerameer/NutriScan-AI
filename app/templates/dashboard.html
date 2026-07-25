@@ -1,220 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>NutriScan AI Dashboard</title>
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        NutriScan AI | Analysis Dashboard
+    </title>
+
 
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <style>
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg,#eef7ff,#f8fbff);
-            min-height:100vh;
-        }
-
-
-        .dashboard-header {
-
-            background:
-            linear-gradient(135deg,
-            rgba(0,198,255,0.9),
-            rgba(110,90,255,0.9));
-
-            padding:40px;
-            border-radius:25px;
-            color:white;
-
-            box-shadow:
-            0 20px 40px rgba(0,0,0,0.15);
-
-            animation:fadeIn 0.8s ease;
-
-        }
-
-
-        .dashboard-header h1 {
-
-            font-weight:700;
-            font-size:38px;
-
-        }
-
-
-        .dashboard-header p {
-
-            opacity:0.9;
-            font-size:16px;
-
-        }
-
-
-
-        .ai-card {
-
-            background:
-            rgba(255,255,255,0.75);
-
-            backdrop-filter:blur(15px);
-
-            border-radius:25px;
-
-            padding:30px;
-
-            height:100%;
-
-            box-shadow:
-            0 15px 35px rgba(0,0,0,0.08);
-
-            border:
-            1px solid rgba(255,255,255,0.5);
-
-            transition:0.4s;
-
-            animation:slideUp 0.8s ease;
-
-        }
-
-
-
-        .ai-card:hover {
-
-            transform:translateY(-8px);
-
-            box-shadow:
-            0 25px 50px rgba(0,0,0,0.15);
-
-        }
-
-
-
-        .icon-box {
-
-            width:60px;
-            height:60px;
-
-            border-radius:20px;
-
-            display:flex;
-            align-items:center;
-            justify-content:center;
-
-            font-size:28px;
-
-            background:
-            linear-gradient(135deg,#00c6ff,#6e5aff);
-
-            color:white;
-
-            margin-bottom:20px;
-
-        }
-
-
-
-        .card-title {
-
-            font-size:22px;
-
-            font-weight:600;
-
-            color:#1d3557;
-
-            margin-bottom:15px;
-
-        }
-
-
-
-        .card-content {
-
-            color:#555;
-
-            line-height:1.8;
-
-            white-space:pre-line;
-
-            font-size:15px;
-
-        }
-
-
-
-        .disclaimer {
-
-            background:
-            linear-gradient(135deg,#fff3cd,#ffeeba);
-
-            border-radius:25px;
-
-            padding:30px;
-
-            border-left:6px solid #ffb703;
-
-        }
-
-
-
-        .footer-text {
-
-            text-align:center;
-
-            color:#777;
-
-            margin-top:40px;
-
-            padding-bottom:20px;
-
-        }
-
-
-
-        @keyframes fadeIn {
-
-            from {
-                opacity:0;
-                transform:translateY(-20px);
-            }
-
-            to {
-                opacity:1;
-                transform:translateY(0);
-            }
-
-        }
-
-
-
-        @keyframes slideUp {
-
-            from {
-
-                opacity:0;
-                transform:translateY(30px);
-
-            }
-
-            to {
-
-                opacity:1;
-                transform:translateY(0);
-
-            }
-
-        }
-
-
-    </style>
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+
+    <!-- NutriScan Global Theme -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/theme.css') }}"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/components.css') }}"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/animations.css') }}"
+    >
+
+    <!-- Dashboard Theme -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/dashboard.css') }}"
+    >
 
 </head>
 
@@ -222,211 +50,545 @@
 <body>
 
 
-<div class="container py-5">
+<div class="dashboard-wrapper">
 
 
-    <!-- Header -->
+    <!-- =================================================
+         DASHBOARD HEADER
+    ================================================== -->
 
-    <div class="dashboard-header mb-5">
-
-        <h1>
-            <i class="bi bi-heart-pulse-fill"></i>
-            NutriScan AI Dashboard
-        </h1>
-
-        <p>
-            AI-powered blood report analysis and personalized nutrition insights.
-        </p>
-
-    </div>
+    <header class="dashboard-header glass-card">
 
 
+        <div class="dashboard-brand-area">
 
-
-    <div class="row g-4">
-
-
-
-        <!-- Patient Summary -->
-
-        <div class="col-lg-6">
-
-            <div class="ai-card">
-
-                <div class="icon-box">
-                    🩺
-                </div>
-
-
-                <div class="card-title">
-                    Patient Summary
-                </div>
-
-
-                <div class="card-content">
-
-                    {{ patient_summary }}
-
-                </div>
-
-
+            <div class="dashboard-brand-icon">
+                🧬
             </div>
 
-        </div>
 
+            <div>
 
-
-
-
-        <!-- Lab Explanation -->
-
-        <div class="col-lg-6">
-
-            <div class="ai-card">
-
-                <div class="icon-box">
-                    🧪
+                <div class="dashboard-eyebrow">
+                    AI HEALTHCARE ASSISTANT
                 </div>
 
-
-                <div class="card-title">
-                    Lab Explanation
-                </div>
-
-
-                <div class="card-content">
-
-                    {{ lab_explanation }}
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-
-
-
-
-        <!-- Nutrition -->
-
-        <div class="col-lg-6">
-
-            <div class="ai-card">
-
-
-                <div class="icon-box">
-                    🥗
-                </div>
-
-
-                <div class="card-title">
-                    Nutrition Suggestions
-                </div>
-
-
-                <div class="card-content">
-
-                    {{ nutrition }}
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-
-
-
-
-
-
-        <!-- Lifestyle -->
-
-        <div class="col-lg-6">
-
-            <div class="ai-card">
-
-
-                <div class="icon-box">
-                    🏃
-                </div>
-
-
-                <div class="card-title">
-                    Lifestyle Guidance
-                </div>
-
-
-                <div class="card-content">
-
-                    {{ lifestyle }}
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-
-
-
-
-
-        <!-- Doctor Discussion -->
-
-        <div class="col-lg-12">
-
-            <div class="ai-card">
-
-
-                <div class="icon-box">
-                    💬
-                </div>
-
-
-                <div class="card-title">
-                    Doctor Discussion Points
-                </div>
-
-
-                <div class="card-content">
-
-                    {{ doctor_points }}
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-
-
-
-
-        <!-- Disclaimer -->
-
-        <div class="col-lg-12">
-
-
-            <div class="disclaimer">
-
-
-                <h4>
-                    ⚠️ Medical Disclaimer
-                </h4>
-
+                <h1>
+                    NutriScan AI
+                </h1>
 
                 <p>
-
-                    {{ disclaimer }}
-
+                    AI-powered Blood Report Analysis Dashboard
                 </p>
 
+            </div>
+
+        </div>
+
+
+        <!--
+            IMPORTANT:
+            This is a POST form because
+            /download-report accepts POST.
+        -->
+
+        <form
+            action="{{ url_for('dashboard.download_report') }}"
+            method="POST"
+            class="download-form header-download-form"
+        >
+
+            <input
+                type="hidden"
+                name="patient_summary"
+                value="{{ patient_summary }}"
+            >
+
+            <input
+                type="hidden"
+                name="lab_explanation"
+                value="{{ lab_explanation }}"
+            >
+
+            <input
+                type="hidden"
+                name="nutrition"
+                value="{{ nutrition }}"
+            >
+
+            <input
+                type="hidden"
+                name="lifestyle"
+                value="{{ lifestyle }}"
+            >
+
+            <input
+                type="hidden"
+                name="doctor_points"
+                value="{{ doctor_points }}"
+            >
+
+            <input
+                type="hidden"
+                name="disclaimer"
+                value="{{ disclaimer }}"
+            >
+
+
+            <button
+                type="submit"
+                class="premium-btn header-download-btn"
+            >
+
+                <span>
+                    ⬇
+                </span>
+
+                Download AI Summary PDF
+
+            </button>
+
+        </form>
+
+
+    </header>
+
+
+
+    <!-- =================================================
+         DASHBOARD INTRO
+    ================================================== -->
+
+    <section class="dashboard-intro">
+
+
+        <div class="intro-status">
+
+            <span class="status-dot"></span>
+
+            Analysis Complete
+
+        </div>
+
+
+        <h2>
+            Your AI Health Insights
+        </h2>
+
+
+        <p>
+            Review your blood report insights in a simple,
+            structured and easy-to-understand format.
+        </p>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         PATIENT SUMMARY
+    ================================================== -->
+
+    <section class="dashboard-card glass-card">
+
+
+        <div class="section-heading">
+
+            <div class="section-icon patient-icon">
+                👤
+            </div>
+
+            <div>
+
+                <span class="section-label">
+                    PROFILE
+                </span>
+
+                <h2>
+                    Patient Summary
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <!--
+            Raw AI content is kept hidden.
+            dashboard.js converts it into visual cards.
+        -->
+
+        <div
+            class="raw-ai-content"
+            data-section="patient"
+        >{{ patient_summary }}</div>
+
+
+        <div
+            id="patientProfileGrid"
+            class="patient-profile-grid"
+        ></div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         LAB EXPLANATION
+    ================================================== -->
+
+    <section class="dashboard-card glass-card">
+
+
+        <div class="section-heading">
+
+            <div class="section-icon lab-icon">
+                🧪
+            </div>
+
+            <div>
+
+                <span class="section-label">
+                    LAB INSIGHTS
+                </span>
+
+                <h2>
+                    Lab Explanation
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="raw-ai-content"
+            data-section="lab"
+        >{{ lab_explanation }}</div>
+
+
+        <div
+            id="labInsightGrid"
+            class="lab-insight-grid"
+        ></div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         NUTRITION
+    ================================================== -->
+
+    <section class="dashboard-card glass-card">
+
+
+        <div class="section-heading">
+
+            <div class="section-icon nutrition-icon">
+                🥗
+            </div>
+
+            <div>
+
+                <span class="section-label">
+                    WELLNESS
+                </span>
+
+                <h2>
+                    Nutrition Suggestions
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="raw-ai-content"
+            data-section="nutrition"
+        >{{ nutrition }}</div>
+
+
+        <div
+            id="nutritionGrid"
+            class="nutrition-grid"
+        ></div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         LIFESTYLE
+    ================================================== -->
+
+    <section class="dashboard-card glass-card">
+
+
+        <div class="section-heading">
+
+            <div class="section-icon lifestyle-icon">
+                🏃
+            </div>
+
+            <div>
+
+                <span class="section-label">
+                    DAILY WELLNESS
+                </span>
+
+                <h2>
+                    Lifestyle Guidance
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="raw-ai-content"
+            data-section="lifestyle"
+        >{{ lifestyle }}</div>
+
+
+        <div
+            id="lifestyleGrid"
+            class="lifestyle-grid"
+        ></div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         DOCTOR DISCUSSION
+    ================================================== -->
+
+    <section class="dashboard-card glass-card">
+
+
+        <div class="section-heading">
+
+            <div class="section-icon doctor-icon">
+                🩺
+            </div>
+
+            <div>
+
+                <span class="section-label">
+                    NEXT CONVERSATION
+                </span>
+
+                <h2>
+                    Doctor Discussion Points
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="raw-ai-content"
+            data-section="doctor"
+        >{{ doctor_points }}</div>
+
+
+        <div
+            id="doctorChecklist"
+            class="doctor-checklist"
+        ></div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         AI HEALTH SUMMARY PDF
+    ================================================== -->
+
+    <section class="pdf-card glass-card">
+
+
+        <div class="pdf-glow"></div>
+
+
+        <div class="pdf-icon">
+
+            📄
+
+        </div>
+
+
+        <div class="pdf-content">
+
+            <span class="section-label">
+                REPORT READY
+            </span>
+
+
+            <h2>
+                Your AI Health Summary
+            </h2>
+
+
+            <p>
+                Your personalized blood report analysis
+                is ready to review and download.
+            </p>
+
+
+            <div class="pdf-features">
+
+
+                <div>
+                    ✓ Lab Explanation
+                </div>
+
+
+                <div>
+                    ✓ Nutrition Guidance
+                </div>
+
+
+                <div>
+                    ✓ Lifestyle Suggestions
+                </div>
+
+
+                <div>
+                    ✓ Doctor Discussion Points
+                </div>
+
+
+            </div>
+
+
+            <!--
+                POST form for PDF download.
+            -->
+
+            <form
+                action="{{ url_for('dashboard.download_report') }}"
+                method="POST"
+                class="download-form"
+            >
+
+
+                <input
+                    type="hidden"
+                    name="patient_summary"
+                    value="{{ patient_summary }}"
+                >
+
+                <input
+                    type="hidden"
+                    name="lab_explanation"
+                    value="{{ lab_explanation }}"
+                >
+
+                <input
+                    type="hidden"
+                    name="nutrition"
+                    value="{{ nutrition }}"
+                >
+
+                <input
+                    type="hidden"
+                    name="lifestyle"
+                    value="{{ lifestyle }}"
+                >
+
+                <input
+                    type="hidden"
+                    name="doctor_points"
+                    value="{{ doctor_points }}"
+                >
+
+                <input
+                    type="hidden"
+                    name="disclaimer"
+                    value="{{ disclaimer }}"
+                >
+
+
+                <button
+                    type="submit"
+                    class="premium-btn pdf-download-btn"
+                >
+
+                    <span>
+                        ⬇
+                    </span>
+
+                    Download AI Report
+
+                </button>
+
+
+            </form>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         MEDICAL DISCLAIMER
+    ================================================== -->
+
+    <section class="disclaimer-card">
+
+
+        <div class="disclaimer-icon">
+            ⚠
+        </div>
+
+
+        <div>
+
+            <span class="section-label">
+                IMPORTANT
+            </span>
+
+
+            <h2>
+                Medical Disclaimer
+            </h2>
+
+
+            <p>
+                This AI analysis is created for educational
+                purposes only. It does not diagnose diseases,
+                prescribe medicines, or replace professional
+                medical advice.
+            </p>
+
+
+            <div class="disclaimer-points">
+
+                <span>
+                    ✓ Educational purposes only
+                </span>
+
+                <span>
+                    ✓ Not a diagnosis
+                </span>
+
+                <span>
+                    ✓ Does not replace professional medical advice
+                </span>
 
             </div>
 
@@ -434,75 +596,54 @@
         </div>
 
 
-
-
-    </div>
-<form action="/download-report" method="POST">
-
-
-    <input type="hidden" 
-    name="patient_summary" 
-    value="{{ patient_summary }}">
-
-
-    <input type="hidden" 
-    name="lab_explanation" 
-    value="{{ lab_explanation }}">
-
-
-    <input type="hidden" 
-    name="nutrition" 
-    value="{{ nutrition }}">
-
-
-    <input type="hidden" 
-    name="lifestyle" 
-    value="{{ lifestyle }}">
-
-
-    <input type="hidden" 
-    name="doctor_points" 
-    value="{{ doctor_points }}">
-
-
-    <input type="hidden" 
-    name="disclaimer" 
-    value="{{ disclaimer }}">
+    </section>
 
 
 
-    <div class="text-center mt-5">
-
-
-        <button 
-        type="submit"
-        class="btn btn-lg"
-        style="
-        background:linear-gradient(135deg,#00c6ff,#6e5aff);
-        color:white;
-        border-radius:30px;
-        padding:15px 40px;
-        font-weight:600;
-        box-shadow:0 10px 25px rgba(0,0,0,0.15);
-        ">
-
-        <i class="bi bi-file-earmark-pdf-fill"></i>
-
-        Download AI Summary PDF
-
-        </button>
-
-
-    </div>
-
-
-</form>
+</div>
 
 
 
-    <div class="footer-text">
+<!-- =====================================================
+     PDF DOWNLOAD MODAL
+====================================================== -->
 
-        NutriScan AI © 2026 | Educational Health Assistant Only
+<div
+    class="download-modal"
+    id="downloadModal"
+    aria-hidden="true"
+>
+
+
+    <div class="modal-box glass-card">
+
+
+        <div class="ai-loader">
+            🧬
+        </div>
+
+
+        <div class="modal-status">
+            SECURE REPORT GENERATION
+        </div>
+
+
+        <h3>
+            Preparing Your AI Report
+        </h3>
+
+
+        <p id="downloadStatus">
+            Generating your summary PDF...
+        </p>
+
+
+        <div class="progress-bar">
+
+            <div class="progress-fill"></div>
+
+        </div>
+
 
     </div>
 
@@ -511,9 +652,18 @@
 
 
 
+<!-- =====================================================
+     SCRIPTS
+====================================================== -->
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/static/js/dashboard.js"></script>
+<script
+    src="{{ url_for('static', filename='js/ui.js') }}"
+></script>
+
+
+<script
+    src="{{ url_for('static', filename='js/dashboard.js') }}"
+></script>
 
 
 </body>
